@@ -19,16 +19,16 @@ def solution(n):
             num += 1
         right -= 1
         
-        # ← 왼쪽
-        if top <= bottom:
-            for i in range(right, left - 1, -1):
+        # ← 왼쪽 
+        if top <= bottom: # 아래 행이 남아있을때.. 
+            for i in range(right, left - 1, -1): #거꾸로 읽는거라서 left-1까지임
                 answer[bottom][i] = num
                 num += 1
             bottom -= 1
         
         # ↑ 위
-        if left <= right:
-            for i in range(bottom, top - 1, -1):
+        if left <= right: # 왼쪽 행이 남아있을때.. 
+            for i in range(bottom, top - 1, -1): # 거꾸로 읽는거라서 top-1까지임.
                 answer[i][left] = num
                 num += 1
             left += 1
