@@ -6,10 +6,14 @@ using namespace std;
 
 string solution(string my_string, int s, int e) {
     string answer = "";
-    string temp = "";
-    temp = my_string.substr(s,e-s+1);
-    reverse(temp.begin(), temp.end());
-    
-    my_string.replace(s, e-s+1, temp);
-    return my_string;
+    for(int i = 0; i <s;i++) {
+        answer+=my_string[i];
+    }
+    for(int i = e; i >= s; i--) {
+        answer+=my_string[i];
+    }
+    for(int i = e+1; i<my_string.size();i++) {
+        answer+=my_string[i];
+    }
+    return answer;
 }
