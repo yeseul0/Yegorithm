@@ -5,17 +5,16 @@ using namespace std;
 
 vector<string> solution(string my_string) {
     vector<string> answer;
-    string temp = "" ;
-    for (char c : my_string) {
-        if (c==' ') {
-            if (temp != "") {//유효 단어 후 첫 공백 
-                answer.push_back(temp);
-            }
-            temp=""; //지속 공백
+    string s="";
+    for(char c : my_string) {
+        
+        if(c!=' ') s+=c;
+        else if(c==' ' && s.size() > 0) {
+            answer.push_back(s);
+            s="";
         }
-        else temp+=c;
     }
-    //마지막 temp 챙겨주자
-    if (temp!="") answer.push_back(temp);
+    if(s.size()>0 ) answer.push_back(s);
+    
     return answer;
 }
